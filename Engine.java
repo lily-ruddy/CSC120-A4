@@ -1,7 +1,3 @@
-//import java.util.Timer;
-//import java.util.TimerTask;
-
-
 public class Engine {
 
     // Attributes:
@@ -38,18 +34,28 @@ public class Engine {
 
     // Methods:
     /**
-     * Resets the engine's current fuel to the maximum level
+     * Resets the engine's current fuel to the maximum level.
      */
     private void refuel(){
         this.currentFuel = this.maxFuel; // sets the current fuel to the maximum fuel level
     }
 
+    /**
+     * Runs the engine where it depletes the fuel.
+     * @return true or fase; booleon that 
+     */
+    public boolean go(){
+        if(this.currentFuel > 0){
+            //wait(15000); // waits 15 seconds
+            this.currentFuel = this.currentFuel - 5; // losing 10 fuel per second
+            System.out.println("The fuel level is now at " + this.currentFuel);
+            return true;
+    
+        } else{
+            return false;
 
-    // public go(){
-    //     wait(3000);
-
-    // }
-
+        }
+    }
 
 
 
@@ -59,20 +65,23 @@ public class Engine {
 
     //Main:
     public static void main(String[] args) {
+
+        /* Creates engine */
         Engine myEngine = new Engine(FuelType.ELECTRIC, 50.0, 100.0);
         //System.out.println("My fuel type is " + myEngine.feulType); // Not working right now
+        
+        /* Refuels engine */
         System.out.println("My engine has fuel level of " + myEngine.currentFuel);
         myEngine.refuel();
         System.out.println("My engine has fuel level of " + myEngine.currentFuel);
+        
+        /* Runs engine */
+        while (myEngine.go()) {
+                    System.out.println("Choo choo!");
+                }
+                System.out.println("Out of fuel.");
     }
 
-    // Don't know if my engine has to be in this format?
-    // public static void main(String[] args) {
-    //     Engine myEngine = new Engine(FuelType.ELECTRIC, 100.0);
-    //     // while (myEngine.go()) {
-    //     //     System.out.println("Choo choo!");
-    //     // }
-    //     // System.out.println("Out of fuel.");
-    // }
+
 
 }
