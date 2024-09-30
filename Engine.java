@@ -7,9 +7,9 @@ public class Engine {
 
     /**
      * Constructor
-     * @param Fuel type
-     * @param Current fuel level
-     * @param Max fuel level
+     * @param FuelType; The fuel type
+     * @param currentFuel; Current fuel level
+     * @param maxFuel; Max fuel level
      */
     public Engine(String FeulType, double currentFuel, double maxFuel){
         this.FeulType = FeulType;
@@ -32,13 +32,30 @@ public class Engine {
         return  this.maxFuel;
     }
 
+    // Methods:
+    /**
+     * Resets the engine's current fuel to the maximum level
+     * @param currentFuel; Current fuel level
+     * @param maxFuel; Max fuel level
+     */
+    private void refuel(){
+        this.currentFuel = this.maxFuel; // sets the current fuel to the maximum fuel level
+    }
+
+
+
+
+
+
 
 
 
     // Main:
     public static void main(String[] args) {
         Engine myEngine = new Engine("coal", 2, 10);
-        System.out.println("My engine has fuel type of " + myEngine.FeulType);
+        System.out.println("My engine has fuel level of " + myEngine.currentFuel);
+        myEngine.refuel();
+        System.out.println("My engine has fuel level of " + myEngine.currentFuel);
     }
 
 
