@@ -26,7 +26,7 @@ ___YES__ 1 pt: The `Car` class contains appropriately-encapsulated attributes to
 
 ___YES__ 1 pt: The `Car` class has functional `addPassenger(...)` and `removePassenger(...)` methods
 
-_____ 1 pt: The `Car` class has a `printManifest()` method that prints a nicely-formatted roster of all `Passenger`s currently aboard the car
+___YES__ 1 pt: The `Car` class has a `printManifest()` method that prints a nicely-formatted roster of all `Passenger`s currently aboard the car
 
 ### Level 3 (3 pts)
 

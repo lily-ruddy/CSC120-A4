@@ -74,11 +74,21 @@ public class Car {
         }      
     }
 
-
-
-
-
-    
+    /**
+     * Prints the full manifest of the car. It will print all the passengers onboard. 
+     * @return print message
+    */
+    public void printManifest(){
+        /* Checks to see if there are people in the car */
+        if (Passengers.size()>=1) {
+            
+            System.out.println(Passengers);
+            
+        } else{
+            
+            System.out.println("This car is EMPTY");
+        }
+    }
 
     // Main:
     public static void main(String[] args) {
@@ -89,7 +99,6 @@ public class Car {
 
         /* Creates car */
         Car myCar = new Car(myPassengers, 10);
-        System.out.println(myCar.Passengers + " are on the car.");
 
         /* Getting capacity */
         System.out.println("The maximum capacity of the car is "+ myCar.getCapacity() +".");
@@ -101,6 +110,8 @@ public class Car {
         myCar.removePassenger("Jeff"); // removes passenger
         System.out.println("There are "+myCar.seatsRemaining()+" seats remaining.");
 
+        /* Manifest */
+        myCar.printManifest(); // prints out all the passengers in the car
 
     }
 
