@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Car {
 
     // Attributes:
-    private ArrayList<String> Passengers = new ArrayList<>(); // array list of all the pasengers currently on board
+    private ArrayList<String> Passengers = new ArrayList<String>(); // array list of all the pasengers currently on board
     private int carMax; // the maximum number of passengers in a car
 
     // Constructor:
@@ -22,29 +22,35 @@ public class Car {
 
     // Getters:
     /* Capacity getter */
-    // public int getCapacity(){
-    //     capacity = this.carmax - this.Passengers.length();
-    //     return this.capacity;
-    // }
+    public int getCapacity(){
+        System.out.println("The maximum capacity of the car is "+ this.carMax +".");
+        return this.carMax;
 
+    }
+        
+    /* Seats remaining getter */
+    public int seatsRemaining(){
+        int seatsRemaining = this.carMax - this.Passengers.size(); // subtracts the passenger number from the maximum capacity
+        System.out.println("There are "+ seatsRemaining +" seats remaining in the car.");
+        return seatsRemaining;
+    }
     
-    
-    
-    
-    
-    
+
     // Main:
     public static void main(String[] args) {
-        /* Sample Passenger Array List */
+        /* Sample passenger array list */
         ArrayList<String> myPassengers = new ArrayList<String>(); // creates sample passenger array list
         myPassengers.add("Lily"); // adds passenger 
         myPassengers.add("Leah"); // adds passenger
 
-        /* Creates Car */
+        /* Creates car */
         Car myCar = new Car(myPassengers, 10);
-        System.out.println(myCar.Passengers + " are on the car with a max limit of " + myCar.carMax);
+        System.out.println(myCar.Passengers + " are on the car.");
 
-        
+        /* Getting capacity */
+        myCar.getCapacity();
+        myCar.seatsRemaining();
+
     }
 
 }
