@@ -15,7 +15,7 @@ public class Car {
      * @param Passengers; The array list of the passengers currently on board.
      * @param carMax; The maximum capacity per car.
     */
-    public Car(ArrayList Passengers, int carMax){
+    public Car(ArrayList<String> Passengers, int carMax){
         this.Passengers = Passengers;
         this.carMax = carMax;
     }
