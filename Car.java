@@ -6,17 +6,17 @@ import java.util.ArrayList;
 public class Car {
 
     // Attributes:
-    private ArrayList<String> Passengers = new ArrayList<String>(); // array list of all the pasengers currently on board
+    private ArrayList<String> passengers = new ArrayList<String>(); // array list of all the pasengers currently on board
     private int carMax; // the maximum number of passengers in a car
 
     // Constructor:
     /**
      * Creates a passenger car for the train. 
-     * @param Passengers; The array list of the passengers currently on board.
+     * @param passengers; The array list of the passengers currently on board.
      * @param carMax; The maximum capacity per car.
     */
-    public Car(ArrayList<String> Passengers, int carMax){
-        this.Passengers = Passengers;
+    public Car(ArrayList<String> passengers, int carMax){
+        this.passengers = passengers;
         this.carMax = carMax;
     }
 
@@ -27,9 +27,12 @@ public class Car {
 
     }
         
-    /* Seats remaining getter */
+    /**
+     * Getter for the number of seats remaining in the car.
+     * @return seatsRemaining;
+     */
     public int seatsRemaining(){
-        int seatsRemaining = this.carMax - this.Passengers.size(); // subtracts the passenger number from the maximum capacity
+        int seatsRemaining = this.carMax - this.passengers.size(); // subtracts the passenger number from the maximum capacity
         return seatsRemaining;
     }
 
@@ -43,9 +46,18 @@ public class Car {
         /* Check if there is enough room in the car */
         if(seatsRemaining() >= 1){
 
-            Passengers.add(Passenger_p); // adds the passenger
-            System.out.println(Passenger_p + " is now in the car."); // prints message indicating passenger boarded
-            return true;
+            /* Check if the passenger is already in the car */
+            if (passengers.contains(Passenger_p)) {
+
+                passengers.add(Passenger_p); // adds the passenger
+                System.out.println(Passenger_p + " is now in the car."); // prints message indicating passenger boarded
+                return true;
+                
+            } else{
+                throw new RuntimeException(Passenger_p + " is already onboard.");
+            }
+
+            
 
         } else{
 
@@ -61,9 +73,9 @@ public class Car {
     */
     public boolean removePassenger(String Passenger_p){
         /* Check if passenger is on the car */
-        if (Passengers.contains(Passenger_p)) {
+        if (passengers.contains(Passenger_p)) {
             
-            Passengers.remove(Passenger_p); // removes passenger from the car
+            passengers.remove(Passenger_p); // removes passenger from the car
             System.out.println(Passenger_p + " has left the car."); // prints message indicating pasenger left
             return true;
 
@@ -80,9 +92,9 @@ public class Car {
     */
     public void printManifest(){
         /* Checks to see if there are people in the car */
-        if (Passengers.size()>=1) {
+        if (passengers.size()>=1) {
             
-            System.out.println(Passengers);
+            System.out.println(passengers);
             
         } else{
             
