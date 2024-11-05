@@ -11,7 +11,7 @@ public class Car {
 
     // Constructor:
     /**
-     * Creates a passenger car for the train. 
+     * Creates a passenger Car class for the train. 
      * @param passengers; The array list of the passengers currently on board.
      * @param carMax; The maximum capacity per car.
     */
@@ -23,7 +23,7 @@ public class Car {
     // Getters:
     /**
      * Getter for the max capacity of the car. 
-     * @return carMax; the maximum capacity of the car
+     * @return int carMax; the maximum capacity of the car
      */
     public int getCapacity(){
         return this.carMax;
@@ -32,7 +32,7 @@ public class Car {
         
     /**
      * Getter for the number of seats remaining in the car.
-     * @return seatsRemaining; number of seats remaining
+     * @return int seatsRemaining; number of seats remaining
      */
     public int seatsRemaining(){
         int seatsRemaining = this.carMax - this.passengers.size(); // subtracts the passenger number from the maximum capacity
